@@ -8,11 +8,12 @@ import java.util.List;
 /**
  * Represents a single customer order.
  *
- *   getTotal() uses a Stream pipeline instead of a manual loop:
+ * Holds a List<OrderItem> — a heterogeneous collection of Pizza, Drink,
+ * and GarlicKnots objects. This is the payoff of the OrderItem interface:
+ * one list, one getTotal() call, no type-checking needed anywhere.
  *
- *     items.stream()
- *          .mapToDouble(OrderItem::getPrice)   // method reference
- *          .sum();
+ * getTotal() uses a Stream pipeline instead of a manual loop:
+ *   items.stream().mapToDouble(OrderItem::getPrice).sum();
  *
  * Spec rule: an order with 0 pizzas must have at least one drink or
  * garlic knots. isValid() enforces this before checkout is allowed.
@@ -20,6 +21,8 @@ import java.util.List;
 public class Order {
 
     // ── Fields ────────────────────────────────────────────────────────────
+    private List<OrderItem> items;
+    private LocalDateTime   orderTime;
     private List<OrderItem>  items;
     private LocalDateTime    orderTime;
 
@@ -45,6 +48,7 @@ public class Order {
         }
     }
 
+    /** Returns items newest-first so the order screen matches the spec. */
     /**
      * Returns items in reverse insertion order (newest first) so the
      * order screen always shows the most recent addition at the top.
@@ -57,6 +61,7 @@ public class Order {
 
     // ── Pricing ───────────────────────────────────────────────────────────
 
+    /** Sums all item prices using a Stream + method reference. */
     /**
      * Sums all item prices using a Stream + method reference.
      *
@@ -69,6 +74,7 @@ public class Order {
 
     // ── Validation ────────────────────────────────────────────────────────
 
+    /** An order with 0 pizzas must have at least a drink or garlic knots. */
     /**
      * Enforces the spec rule: an order with 0 pizzas must contain
      * at least one drink or garlic knots before checkout is allowed.

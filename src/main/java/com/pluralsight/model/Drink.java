@@ -5,9 +5,6 @@ package com.pluralsight.model;
  *   Small  → $2.00
  *   Medium → $2.50
  *   Large  → $3.00
- *
- * Size is stored as a String so the UI can display it directly.
- * getPrice() uses a switch — clean and readable for three fixed tiers.
  */
 public class Drink implements OrderItem {
 

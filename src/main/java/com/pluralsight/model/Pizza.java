@@ -14,10 +14,6 @@ import java.util.List;
  *   total = basePrice (from PizzaSize)
  *         + sum of topping prices (each topping knows its own price by size)
  *         + stuffedCrustFee (if requested)
- *
- * The topping loop uses the Topping abstraction — Pizza doesn't care whether
- * a topping is Premium or Regular. It just calls topping.getPrice(size) and
- * polymorphism handles the rest.
  */
 public class Pizza implements OrderItem {
 

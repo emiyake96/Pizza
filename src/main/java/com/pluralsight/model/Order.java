@@ -23,6 +23,8 @@ public class Order {
     // ── Fields ────────────────────────────────────────────────────────────
     private List<OrderItem> items;
     private LocalDateTime   orderTime;
+    private List<OrderItem>  items;
+    private LocalDateTime    orderTime;
 
     // ── Constructor ───────────────────────────────────────────────────────
     public Order() {
@@ -32,10 +34,14 @@ public class Order {
 
     // ── Item management ───────────────────────────────────────────────────
 
+    /** Adds any OrderItem (Pizza, Drink, or GarlicKnots) to the order. */
     public void addItem(OrderItem item) {
         items.add(item);
     }
 
+    /**
+     * Removes an item by its position in the list (0-based index).
+     */
     public void removeItem(int index) {
         if (index >= 0 && index < items.size()) {
             items.remove(index);
@@ -43,6 +49,10 @@ public class Order {
     }
 
     /** Returns items newest-first so the order screen matches the spec. */
+    /**
+     * Returns items in reverse insertion order (newest first) so the
+     * order screen always shows the most recent addition at the top.
+     */
     public List<OrderItem> getItemsNewestFirst() {
         List<OrderItem> reversed = new ArrayList<>(items);
         Collections.reverse(reversed);
@@ -52,6 +62,10 @@ public class Order {
     // ── Pricing ───────────────────────────────────────────────────────────
 
     /** Sums all item prices using a Stream + method reference. */
+    /**
+     * Sums all item prices using a Stream + method reference.
+     *
+     */
     public double getTotal() {
         return items.stream()
                     .mapToDouble(OrderItem::getPrice)
@@ -61,6 +75,10 @@ public class Order {
     // ── Validation ────────────────────────────────────────────────────────
 
     /** An order with 0 pizzas must have at least a drink or garlic knots. */
+    /**
+     * Enforces the spec rule: an order with 0 pizzas must contain
+     * at least one drink or garlic knots before checkout is allowed.
+     */
     public boolean isValid() {
         boolean hasPizza = items.stream()
                                .anyMatch(item -> item instanceof Pizza);
@@ -70,6 +88,7 @@ public class Order {
                     .anyMatch(item -> item instanceof Drink || item instanceof GarlicKnots);
     }
 
+    /** Returns true if the order has no items at all. */
     public boolean isEmpty() {
         return items.isEmpty();
     }

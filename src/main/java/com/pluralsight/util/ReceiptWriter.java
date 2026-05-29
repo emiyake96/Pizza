@@ -44,7 +44,7 @@ public class ReceiptWriter {
         try (PrintWriter writer = new PrintWriter(new FileWriter(receiptFile))) {
 
             writer.println("========================================");
-            writer.println("             PIZZA RECEIPT              ");
+            writer.println("         PIZZA MARUMO RECEIPT           ");
             writer.println("========================================");
             writer.println("Date: " + order.getOrderTime().format(DISPLAY_FORMAT));
             writer.println("----------------------------------------");
@@ -58,7 +58,7 @@ public class ReceiptWriter {
             writer.println("\n----------------------------------------");
             writer.printf("ORDER TOTAL: $%.2f%n", order.getTotal());
             writer.println("========================================");
-            writer.println("     Thank you for ordering Pizza!      ");
+            writer.println("  Thank you for ordering Pizza Marumo!  ");
             writer.println("========================================");
 
             System.out.println("  Receipt saved: receipts/" + filename);

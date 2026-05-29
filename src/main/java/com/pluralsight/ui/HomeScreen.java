@@ -14,7 +14,7 @@ public class HomeScreen {
 
     public void show() {
         System.out.println("╔══════════════════════════════╗");
-        System.out.println("║       Welcome to Pizza!      ║");
+        System.out.println("║   Welcome to Pizza Marumo!   ║");
         System.out.println("╚══════════════════════════════╝");
 
         boolean running = true;

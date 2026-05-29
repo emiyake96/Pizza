@@ -1,0 +1,19 @@
+========================================
+             PIZZA RECEIPT              
+========================================
+Date: May 28, 2026  05:30:48 PM
+----------------------------------------
+
+1. Personal 8" Pizza | Thick Crust | Stuffed Crust
+  + Pepperoni (extra)
+  + Sausage
+  + Ricotta (extra)
+  + Onions
+  + Marinara
+  Price: $11.80
+
+----------------------------------------
+ORDER TOTAL: $11.80
+========================================
+     Thank you for ordering Pizza!      
+========================================

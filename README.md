@@ -1,4 +1,4 @@
-# PIZZAlicious 🍕
+# Pizza Marumo 
 
 A point-of-sale console application for a custom pizza shop.  
 Built with Java, applying core OOP principles: inheritance, polymorphism, abstract classes, interfaces, generics, and Java Streams.

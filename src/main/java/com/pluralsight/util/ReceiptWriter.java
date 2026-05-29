@@ -15,10 +15,6 @@ import java.util.List;
  *
  * Spec: filename format is yyyyMMdd-HHmmss.txt (e.g. 20230329-121523.txt)
  *
- * WHY PrintWriter over System.out? PrintWriter wraps a FileWriter so we can
- * call println() the same way we print to the console — the only difference
- * is the destination. This keeps the receipt format easy to read and maintain.
- *
  * The receipts/ folder is created automatically if it doesn't exist yet.
  */
 public class ReceiptWriter {

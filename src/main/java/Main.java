@@ -1,7 +1,6 @@
 import com.pluralsight.ui.HomeScreen;
 
 /**
- * Entry point for the PIZZAlicious POS application.
  * Starts the HomeScreen and hands control to the UI layer.
  */
 public class Main {

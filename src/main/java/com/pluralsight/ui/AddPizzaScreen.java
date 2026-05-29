@@ -20,9 +20,10 @@ import java.util.List;
  *   2. Choose crust
  *   3. Add meats
  *   4. Add cheeses
- *   5. Add other toppings
+ *   5. Add vegetables
  *   6. Choose sauce
- *   7. Stuffed crust?
+ *   7. Add sides (free)
+ *   8. Stuffed crust?
  */
 public class AddPizzaScreen {
 
@@ -33,14 +34,12 @@ public class AddPizzaScreen {
 
         // ── Step 1: Size ──────────────────────────────────────────────────
         PizzaSize size = chooseSize();
-
-        // Build the pizza with a temporary crust so we can render it
         Pizza pizza = new Pizza(size, CrustType.REGULAR);
         PizzaVisualizer.render(pizza);
 
         // ── Step 2: Crust ─────────────────────────────────────────────────
         CrustType crust = chooseCrust();
-        pizza = new Pizza(size, crust);   // rebuild with chosen crust
+        pizza = new Pizza(size, crust);
         PizzaVisualizer.render(pizza);
 
         // ── Step 3: Meats ─────────────────────────────────────────────────
@@ -54,7 +53,7 @@ public class AddPizzaScreen {
         PizzaVisualizer.render(pizza);
 
         // ── Step 5: Vegetables ────────────────────────────────────────────
-        System.out.println("\n── Other Toppings (Free) ───────────");
+        System.out.println("\n── Vegetables (Free) ───────────────");
         addToppingsFromList(pizza, ToppingFactory.getVegetables(), false);
         PizzaVisualizer.render(pizza);
 
@@ -63,7 +62,12 @@ public class AddPizzaScreen {
         addToppingsFromList(pizza, ToppingFactory.getSauces(), false);
         PizzaVisualizer.render(pizza);
 
-        // ── Step 7: Stuffed crust ─────────────────────────────────────────
+        // ── Step 7: Sides ─────────────────────────────────────────────────
+        System.out.println("\n── Sides / Seasonings (Free) ───────");
+        addToppingsFromList(pizza, ToppingFactory.getSides(), false);
+        PizzaVisualizer.render(pizza);
+
+        // ── Step 8: Stuffed crust ─────────────────────────────────────────
         boolean stuffed = Console.getYesNo("\nWould you like stuffed crust? (+$1.50)");
         pizza.setStuffedCrust(stuffed);
         PizzaVisualizer.render(pizza);
@@ -93,21 +97,19 @@ public class AddPizzaScreen {
             System.out.printf("  %d) %s%n", i + 1, crusts[i].getLabel());
         }
         int choice = Console.getInt("Select crust: ") - 1;
-        if (choice < 0 || choice >= crusts.length) choice = 1; // default: Regular
+        if (choice < 0 || choice >= crusts.length) choice = 1;
         return crusts[choice];
     }
 
     /**
-     * Displays a topping list and lets the customer pick any number of them.
-     * If allowExtra is true (premium toppings), the customer can also mark
-     * a topping as "extra" for an upcharge.
-     * Entering 0 moves on to the next section.
+     * Displays a topping list and lets the customer pick any number.
+     * If allowExtra is true (premium toppings), customer can mark extra for an upcharge.
+     * Entering 0 moves to the next section.
      */
     private void addToppingsFromList(Pizza pizza, List<Topping> options, boolean allowExtra) {
         boolean picking = true;
 
         while (picking) {
-            // Print available toppings with index
             for (int i = 0; i < options.size(); i++) {
                 System.out.printf("  %d) %s%n", i + 1, options.get(i).getName());
             }
@@ -119,13 +121,10 @@ public class AddPizzaScreen {
                 picking = false;
             } else if (choice >= 1 && choice <= options.size()) {
                 Topping selected = options.get(choice - 1);
-
-                // Check if the customer wants extra (premium only)
                 if (allowExtra) {
                     boolean extra = Console.getYesNo("  Extra " + selected.getName() + "?");
                     selected.setExtra(extra);
                 }
-
                 pizza.addTopping(selected);
                 System.out.println("  Added: " + selected);
             } else {

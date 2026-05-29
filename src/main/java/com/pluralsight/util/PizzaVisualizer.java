@@ -14,8 +14,7 @@ import java.util.List;
  * Each topping is drawn as a multi-line ASCII art stamp directly ON the pizza,
  * appearing multiple times spread across the surface so it looks like a real pizza.
  *
- * Slots are pre-defined positions inside the circle. They are filled round-robin
- * across the topping list — 2 toppings on an 8-slot medium pizza gives 4 of each.
+ * Slots are pre-defined positions inside the circle.
  *
  * Stamps are clipped to the pizza interior: any stamp character that falls on
  * or outside the crust ring is simply skipped.
@@ -163,22 +162,22 @@ public class PizzaVisualizer {
         if (n.contains("pepperoni")) return new String[]{
                 "  .-----.  ",
                 " /* * * *\\ ",
-                "| * (o) * |",
+                "| *  *  * |",
                 " \\* * * */ ",
                 "  '-----'  "
         };
         if (n.contains("sausage")) return new String[]{
                 " .-------. ",
                 " |~~~~~~~| ",
-                " |  sss  | ",
+                " |       | ",
                 " |~~~~~~~| ",
                 " '-------' "
         };
         if (n.contains("ham")) return new String[]{
                 " .-------. ",
-                " | H   H | ",
-                " |   H   | ",
-                " | H   H | ",
+                " |       | ",
+                " |       | ",
+                " |       | ",
                 " '-------' "
         };
         if (n.contains("bacon")) return new String[]{
@@ -190,8 +189,8 @@ public class PizzaVisualizer {
         };
         if (n.contains("chicken")) return new String[]{
                 "   ,----.  ",
-                "  ( >--< ) ",
-                "  (  ()  ) ",
+                "  (      ) ",
+                "  (      ) ",
                 "  (      ) ",
                 "   '----'  "
         };
@@ -210,11 +209,11 @@ public class PizzaVisualizer {
                 "  \\~~~~~/ "
         };
         if (n.contains("parmesan")) return new String[]{
-                " .  R  .  ",
-                "  . R R . ",
-                " R  .  R  ",
-                "  . R R . ",
-                " .  R  .  "
+                " .  .  .  ",
+                "  . . . . ",
+                " .  .  .  ",
+                "  . . . . ",
+                " .  .  .  "
         };
         if (n.contains("ricotta")) return new String[]{
                 "  .-----.  ",
@@ -226,15 +225,15 @@ public class PizzaVisualizer {
         if (n.contains("goat")) return new String[]{
                 "  .-----.  ",
                 " ( o O o ) ",
-                " (  G G  ) ",
+                " (       ) ",
                 " ( o O o ) ",
                 "  '-----'  "
         };
         if (n.contains("buffalo")) return new String[]{
                 " ~~~~~~~~~ ",
-                " ~ F   F ~ ",
-                " ~  FFF  ~ ",
-                " ~ F   F ~ ",
+                " ~       ~ ",
+                " ~       ~ ",
+                " ~       ~ ",
                 " ~~~~~~~~~ "
         };
         if (n.contains("onion")) return new String[]{
@@ -262,7 +261,7 @@ public class PizzaVisualizer {
         if (n.contains("olive oil")) return new String[]{
                 "    _||_   ",
                 "   /    \\  ",
-                "  ( oil  ) ",
+                "  (      ) ",
                 "   \\    /  ",
                 "    '~~'   "
         };
@@ -275,9 +274,9 @@ public class PizzaVisualizer {
         };
         if (n.contains("tomato")) return new String[]{
                 "    /\\     ",
-                "   /TT\\    ",
-                "  ( TT )   ",
-                "  ( TT )   ",
+                "   /  \\    ",
+                "  (    )   ",
+                "  (    )   ",
                 "   '~~'    "
         };
         if (n.contains("spinach")) return new String[]{
@@ -304,29 +303,29 @@ public class PizzaVisualizer {
         if (n.contains("anchov")) return new String[]{
                 " ~~~~~~~~~ ",
                 " >~ ~~~ ~< ",
-                " >~  X  ~< ",
+                " >~     ~< ",
                 " >~ ~~~ ~< ",
                 " ~~~~~~~~~ "
         };
         if (n.contains("marinara")) return new String[]{
                 "  . ~ ~ .  ",
-                " ( :m::m: )",
+                " ( : :: : )",
                 " (  ~~~~  )",
-                " ( :m::m: )",
+                " ( : :: : )",
                 "  ' ~ ~ '  "
         };
         if (n.contains("alfredo")) return new String[]{
                 "  .~~~~.   ",
-                " (  aa  )  ",
-                " ( AAAA )  ",
-                " (  aa  )  ",
+                " (      )  ",
+                " (      )  ",
+                " (      )  ",
                 "  '~~~~'   "
         };
         if (n.contains("pesto")) return new String[]{
                 "   ,^,^,   ",
-                "  ( ppp )  ",
-                "  ( :P: )  ",
-                "  ( ppp )  ",
+                "  (     )  ",
+                "  ( : : )  ",
+                "  (     )  ",
                 "   '---'   "
         };
         if (n.contains("bbq")) return new String[]{

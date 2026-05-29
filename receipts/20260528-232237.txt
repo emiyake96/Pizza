@@ -1,0 +1,19 @@
+========================================
+             PIZZA RECEIPT              
+========================================
+Date: May 28, 2026  11:22:37 PM
+----------------------------------------
+
+1. Personal 8" Pizza | Cauliflower Crust | Stuffed Crust
+  + Pepperoni (extra)
+  + Sausage (extra)
+  + Bacon (extra)
+  + Onions
+  + Parmesan
+  Price: $11.50
+
+----------------------------------------
+ORDER TOTAL: $11.50
+========================================
+     Thank you for ordering Pizza!      
+========================================

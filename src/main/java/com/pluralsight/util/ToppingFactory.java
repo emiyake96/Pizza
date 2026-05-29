@@ -11,11 +11,6 @@ import java.util.List;
 /**
  * Central catalog of every available topping, organized by category.
  *
- * WHY a factory? The UI screens need menus of toppings to display.
- * Rather than hardcoding the same strings in multiple screen classes,
- * we define them once here. Each call returns a fresh list of new
- * Topping objects so the customer's selections stay independent.
- *
  * The screens call these methods, let the customer pick, then call
  * setExtra(true) on any topping the customer wants extra of.
  */
